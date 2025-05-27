@@ -1,0 +1,35 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    TextInput:
+        id: nickname
+        hint_text: "Nickname"
+        size_hint_y: None
+        height: "40dp"
+
+    ScrollView:
+        TextInput:
+            id: chat_area
+            text: ""
+            readonly: True
+            size_hint_y: 1
+            font_size: 14
+            background_color: 1,1,1,1
+            foreground_color: 0,0,0,1
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        TextInput:
+            id: message_input
+            hint_text: "Messaggio"
+            multiline: False
+
+        Button:
+            text: "Invia"
+            size_hint_x: None
+            width: "80dp"
+            on_release: app.send_message()
