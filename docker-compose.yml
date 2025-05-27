@@ -1,0 +1,32 @@
+services:
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: express-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  websocket-service:
+    build: ./websocket-service
+    container_name: websocket-service
+    ports:
+      - "3001:3001"
+    depends_on:
+      - redis
+
+#  kivy-frontend:
+#    build: ./frontend
+#    container_name: kivy-frontend
+#    volumes:
+#      - ./frontend:/app
+#    environment:
+#      - DISPLAY=${DISPLAY}
+#    network_mode: host
