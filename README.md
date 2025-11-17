@@ -31,7 +31,7 @@
 
 ## 🗂️ Struttura del progetto
 
-``` C
+```
 chat-di-classe/  
 ├── backend/  
 │   ├── server.js  
